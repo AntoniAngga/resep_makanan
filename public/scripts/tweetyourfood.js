@@ -1,12 +1,13 @@
 $( document ).ready(function() {
   $('#btnRecipe').on('click', function() {
     console.log('recipe....');
+    const tweetText = $('#txtTwitter');
     $.get( "/recipes/", {
-      food: 'potatoe'
+      food: tweetText.val()
     }, function( resp ) {
       // var recipes = resp[0].recipe.ingredientLines.join(',');
       var recipes = resp[0].recipe.url;
-      $('#txtRecipe').val(recipes);
+      tweetText.val(tweetText.val() + ' ' + recipes);
       console.log(recipes); // server response
     });
   });
