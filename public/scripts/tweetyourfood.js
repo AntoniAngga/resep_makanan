@@ -1,13 +1,17 @@
 $( document ).ready(function() {
   $('#btnRecipe').on('click', function() {
     console.log('recipe....');
-    const tweetText = $('#txtTwitter');
+    var tweetText = $('#txtTwitter');
+    var food = tweetText.val();
+    var foodArray = food.match(/:\w+/g);
+    var foodToSend = foodArray[0].replace(':', '');
+    console.log(foodToSend);
     $.get( "/recipes/", {
-      food: tweetText.val()
+      food: foodToSend
     }, function( resp ) {
       // var recipes = resp[0].recipe.ingredientLines.join(',');
       var recipes = resp[0].recipe.url;
-      tweetText.val(tweetText.val() + ' ' + recipes);
+      tweetText.val(food.replace(/:/g, '') + ' ' + recipes);
       console.log(recipes); // server response
     });
   });
