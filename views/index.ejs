@@ -1,28 +1,163 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <script src="https://code.jquery.com/jquery-3.2.1.js" integrity="sha256-DZAnKJ/6XZ9si04Hgrsxu/8s717jcIzLy3oi35EouyE=" crossorigin="anonymous"></script>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-  </head>
-  <body>
-  <div class="container">
-      <div class ="col-md-12">
-        <h1 align="center">Welcome To Twitter Recipe World</h1>
-      </div>
-      <div class="col-md-12">
-          <form action="/tweetResep" method="post">
-              <label align="center">
-                  Your Tweet :
-                  <input type="text" id="txtTwitter" name="txtTwitter">
-              </label>
-              <button type="submit" id="btnSubmit">Submit</button>
-          </form>
+ <html lang="en">
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+   <meta name="viewport" content="width=device-width, initial-scale=1"/>
+   <title>TweetFood</title>
 
-      </div>
+   <!-- CSS  -->
+   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/css/materialize.min.css">
+   <!-- <link href="/stylesheets/materialize.css" type="text/css" rel="stylesheet" media="screen,projection"/> -->
+   <link href="/stylesheets/style.css" type="text/css" rel="stylesheet" media="screen,projection"/>
+ </head>
+ <body>
+   <nav class="white" role="navigation">
+     <div class="nav-wrapper container">
+       <a id="logo-container" href="#" class="brand-logo">TweetFood</a>
+       <ul class="right hide-on-med-and-down">
+         <!-- <li><a href="#">Login</a></li> -->
+       </ul>
 
-  </div>
-  </body>
-</html>
+       <ul id="nav-mobile" class="side-nav">
+         <!-- <li><a href="#">Login</a></li> -->
+       </ul>
+       <a href="#" data-activates="nav-mobile" class="button-collapse"><i class="material-icons">menu</i></a>
+     </div>
+   </nav>
+
+   <div id="index-banner" class="parallax-container">
+     <div class="section no-pad-bot">
+       <div class="container">
+         <br><br>
+         <h1 class="header center teal-text text-lighten-2">our recipe Badges</h1>
+         <div class="row center">
+           <h5 class="header col s12 light">Look for the ingredient information on every Food</h5>
+         </div>
+         <div class="row center"></div>
+         <br><br>
+
+       </div>
+     </div>
+     <div class="parallax"><img src="http://images.meredith.com/recipecom/images/home/recipeBG2740x920.jpg.pagespeed.ce.xBgItY8Iod.jpg" alt="Unsplashed background img 1"></div>
+   </div>
+
+
+   <div class="container">
+     <div class="section">
+
+       <!--   Icon Section   -->
+       <div class="row">
+         <div class="col s12 m4">
+           <div class="icon-block">
+             <h2 class="center brown-text"><i class="material-icons">search</i></h2>
+             <h5 class="center">SEARCH</h5>
+
+             <p class="light">Find the food you need for any occasion with our recipe finder. Easily refine your search with any of nearly 150 recipe categories. The site delivers every type of recipe you could want, from decadent desserts and authentic cuisines to great-tasting healthy favorites with nutrition information that is reviewed by registered dietitians.</p>
+           </div>
+         </div>
+
+         <div class="col s12 m4">
+           <div class="icon-block">
+             <h2 class="center brown-text"><i class="material-icons">description</i></h2>
+             <h5 class="center">SAVOR</h5>
+
+             <p class="light">Enjoy daily features that include quick meal ideas, seasonal menus, cooking videos, cookbook reviews and our take on the latest gadgets. Get holiday tips and entertaining ideas for any size gathering. You'll also find thousands of big, mouthwatering photos and scores of how-to videos with tips to help you cook with confidence.</p>
+           </div>
+         </div>
+
+         <div class="col s12 m4">
+           <div class="icon-block">
+             <h2 class="center brown-text"><i class="material-icons">swap_horiz</i></h2>
+             <h5 class="center">SHARE</h5>
+
+             <p class="light">Save your favorite recipes. Build and email your shopping lists. Create and pass around menus for upcoming get-togethers. Rate the recipes and discover new must-try dishes from thousands of reviews from fellow cooks.</p>
+           </div>
+         </div>
+       </div>
+
+     </div>
+   </div>
+
+   <div class="container">
+     <div class="section">
+
+       <div class="row">
+         <div class="col s12 center">
+           <h3><i class="mdi-content-send brown-text"></i></h3>
+           <h4>search what you need here</h4>
+           <form class="" action="/tweetResep" method="post">
+             <div class="col s4"></div>
+             <div class="col s4">
+               <label align="center">
+                   Your Tweet :
+                   <input type="text" id="txtTwitter" name="txtTwitter">
+               </label>
+               <button type="button" name="button" class="waves-effect waves-light btn">Tweet</button>
+               <button type="button" id="btnRecipe" name="button" class="waves-effect waves-light btn">Suggestion</button>
+               <br><br>
+             </div>
+             <div class="col s4"></div>
+             <table class="bordered highlight">
+              <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>ingredient</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                <tr>
+                  <td>Alvin</td>
+                  <td>Eclair</td>
+                </tr>
+              </tbody>
+            </table>
+           </form>
+         </div>
+       </div>
+
+     </div>
+   </div>
+
+
+   <div class="parallax-container valign-wrapper">
+     <div class="section no-pad-bot">
+       <div class="container">
+         <div class="row center">
+           <h5 class="header col s12 light">all recipe are analysed</h5>
+         </div>
+       </div>
+     </div>
+     <div class="parallax"><img src="http://www.stageusa.fr/wp-content/uploads/2017/01/Restaurants-Los-Angeles.jpg" alt="Unsplashed background img 3"></div>
+   </div>
+
+   <footer class="page-footer teal">
+     <div class="container">
+       <div class="row">
+         <div class="col l6 s12">
+           <h5 class="white-text">About Us</h5>
+           <p class="grey-text text-lighten-4">TweetFood features the largest collection of professionally-tested recipes online from food experts at the magazines and cookbooks you love and trust--including Cooking Light, Southern Living, Sunset, Coastal Living, Real Simple, and more.</p>
+         </div>
+         <div class="col l3 s12"></div>
+         <div class="col l3 s12"></div>
+       </div>
+     </div>
+     <div class="footer-copyright">
+       <div class="container">
+       Made by <a class="brown-text text-lighten-3" href="#">TweetFood</a>
+       </div>
+     </div>
+   </footer>
+
+
+   <!--  Scripts-->
+   <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.99.0/js/materialize.min.js"></script>
+   <!-- <script src="/js/materialize.js"></script> -->
+   <script src="/js/init.js"></script>
+   <script src="/scripts/tweetyourfood.js"></script>
+
+   </body>
+ </html>
+

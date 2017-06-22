@@ -13,8 +13,9 @@ const oauth = new OAuth.OAuth(
 
 let twitterPost = function (req,res) {
     let twitterData = req.body;
-    oauth.post(
-        `https://api.twitter.com/1.1/statuses/update.json?status=${twitterData.txtTwitter}`,
+    const encoded = encodeURIComponent(twitterData.txtTwitter);
+    const url = `https://api.twitter.com/1.1/statuses/update.json?status=${encoded}`;
+    oauth.post(url,
         process.env.AccessToken, //test user token
         process.env.AccessTokenSecret, //test user secret
         req.params.txtStatus,
@@ -28,6 +29,7 @@ let twitterPost = function (req,res) {
 };
 
 let index = function (req,res) {
+    // console.log('===================================');
     res.render('index',{hallo : "haloo"})
 };
 
