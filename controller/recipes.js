@@ -4,7 +4,7 @@ const axios = require('axios');
 
 exports.findByFoodName = function (req, res) {
   const foodName = req.query.food ? req.query.food : '';
-  const url = `https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?calories=lte+600&health=vegetarian&q=${foodName}`;
+  const url = `https://edamam-recipe-search-and-diet-v1.p.mashape.com/search?q=${foodName}`;
 
   axios.get(url, {
     headers: {
