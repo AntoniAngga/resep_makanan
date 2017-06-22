@@ -28,6 +28,7 @@ let twitterPost = function (req,res) {
 };
 
 let index = function (req,res) {
+    // console.log('===================================');
     res.render('index',{hallo : "haloo"})
 };
 
