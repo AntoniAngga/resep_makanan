@@ -3,10 +3,13 @@ $( document ).ready(function() {
     console.log('recipe....');
     var tweetText = $('#txtTwitter');
     var ingredientLinesDom = $('#ingredientLines');
+    var tweetLoader = $('#tweetLoader');
     var food = tweetText.val();
     var foodArray = food.match(/:\w+/g);
     var foodToSend = foodArray[0].replace(':', '');
     console.log(foodToSend);
+
+    tweetLoader.addClass('active');
     $.get( "/recipes/", {
       food: foodToSend
     }, function( resp ) {
@@ -16,6 +19,7 @@ $( document ).ready(function() {
       ingredientLinesDom.val(ingredientLines);
       tweetText.val(food.replace(/:/g, '') + ' ' + recipes);
       console.log(recipes); // server response
+      tweetLoader.removeClass('active');
     });
   });
 });
