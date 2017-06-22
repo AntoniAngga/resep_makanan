@@ -10,6 +10,8 @@ const oauth = new OAuth.OAuth(
     'HMAC-SHA1'
 );
 
+const db_ingredient = require('../models/resepMakanan');
+
 
 let twitterPost = function (req,res) {
     let twitterData = req.body;
@@ -24,13 +26,30 @@ let twitterPost = function (req,res) {
             if (e) {
                 console.error(e);
             }
-           res.redirect('/');
+            
+            let newingredient = new db_ingredient ({
+              name : twitterData.txtTwitter,
+              ingredient : twitterData.ingredientLines
+            });
+            
+            newingredient.save(err => {
+              if (err) {
+                console.log(err);
+              } else {
+                res.redirect('/')
+              }
+            })
         });
+    
 };
 
 let index = function (req,res) {
-    // console.log('===================================');
-    res.render('index',{hallo : "haloo"})
+    db_ingredient.find({},(err,result)=>{
+      if (err) {
+        console.log(err.message);
+      }
+    res.render('index',{result : result});
+    })
 };
 
 

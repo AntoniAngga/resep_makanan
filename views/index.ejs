@@ -89,11 +89,15 @@
            <form class="" action="/tweetResep" method="post">
              <div class="col s4"></div>
              <div class="col s4">
-               <label align="center">
-                   Your Tweet :
-                   <input type="text" id="txtTwitter" name="txtTwitter">
-                   <input type="hidden" id="ingredientLines" name="ingredientLines">
-               </label>
+               <div class="row">
+                 <div class="col s12 center">
+                   <label align="center">
+                       Your Tweet :
+                       <textarea id="txtTwitter" name="txtTwitter" class="materialize-textarea" maxlength="120" data-length="120"></textarea>
+                       <input type="hidden" id="ingredientLines" name="ingredientLines">
+                   </label>
+                 </div>
+               </div>
                <button type="submit" name="button" class="waves-effect waves-light btn">Tweet</button>
                <button type="button" id="btnRecipe" name="button" class="waves-effect waves-light btn">Suggestion</button>
                <br><br>
@@ -102,16 +106,18 @@
              <table class="bordered highlight">
               <thead>
                 <tr>
-                    <th>Name</th>
-                    <th>ingredient</th>
+                    <th>Your Tweet</th>
+                    <th>Ingredient</th>
                 </tr>
               </thead>
 
               <tbody>
-                <tr>
-                  <td>Alvin</td>
-                  <td>Eclair</td>
-                </tr>
+                <% result.forEach(data => { %>
+                  <tr>
+                    <td><%=data.name %></td>
+                    <td><%=data.ingredient%></td>
+                  </tr>
+                <%  }) %>
               </tbody>
             </table>
            </form>
